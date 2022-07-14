@@ -10,16 +10,14 @@ function Container(){
      
 
      const handleSubmit=async()=>{
-        event.preventDefault()
+        event.preventDefault();
           let input = document.querySelector('#search')
-          const result = await pullGifs(input.value ? input.value : null)
+          const result = await pullGifs(input.value)
           result && setGif(result)
      }
-     console.log(gif)
+    //  console.log(gif)
 
      useEffect(() => handleSubmit(), [])
-
-
 
 return(
  <div>
