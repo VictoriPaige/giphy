@@ -3,14 +3,11 @@ import pullGifs from '../Services/Constants';
 import Display from './Display';
 import GifFilter from './GifFilter';
 
-
-
 function Container(){
      const [gif, setGif]=useState([])
-     
 
      const handleSubmit=async()=>{
-        event.preventDefault();
+        window.event.preventDefault();
           let input = document.querySelector('#search')
           const result = await pullGifs(input.value)
           result && setGif(result)
@@ -26,7 +23,5 @@ return(
  </div>
 
 )}
-
-
 
 export default Container

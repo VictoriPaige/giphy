@@ -4,6 +4,7 @@ export default async function pullGifs(keyword){
 
 const BASE_URL= 'https://api.giphy.com'
 const API_KEY= 'DFyD8B4xYg44ienPUO0bPsn0cmsVDo0v'
+
 // const giphy = giphyInput.value
 //figure out how to link with Gifs.js input page
 
