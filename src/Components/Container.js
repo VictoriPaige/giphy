@@ -1,36 +1,31 @@
 import{useState, useEffect} from 'react';
 import pullGifs from '../Services/Constants';
+import Display from './Display';
+import GifFilter from './GifFilter';
+
 
 
 function Container(){
-     const [gif, setGif]=useState('')
+     const [gif, setGif]=useState([])
      
-    //  async function handleSubmit(event) {
-    //     event.preventDefault()
-    //       let input = document.querySelector('#search')
-    //       const result = await pullGifs(input.value)
-    //       setGif(result.data.data)
-    //  }
 
-     useEffect(async() => {
-        const data = await pullGifs();
-    // console.log(data) 
-    setGif(data)
-    }, [])
+     const handleSubmit=async()=>{
+        event.preventDefault()
+          let input = document.querySelector('#search')
+          const result = await pullGifs(input.value ? input.value : null)
+          result && setGif(result)
+     }
+     console.log(gif)
 
- console.log(gif);
+     useEffect(() => handleSubmit(), [])
+
 
 
 return(
  <div>
-        <form>
-            <input id="search" type="text"/>
-            {/* onChange value  */}
-            {/* onClick={handleSubmit} */}
-        <button name="submit">Search</button>
-        </form>
-        {/* <p>{gif}</p> */}
-    </div> 
+    <GifFilter onSubmit={handleSubmit} />
+    <Display gifs={gif}/>
+ </div>
 
 )}
 
